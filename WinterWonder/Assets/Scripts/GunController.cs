@@ -11,11 +11,30 @@ public class GunController : MonoBehaviour
     public float shootingSpeed = 1;
     public SteamVR_Action_Boolean fireAction;
 
+
+    public int magazineSize;
+    public int availableAmmo;
+    private int ammoTakenToReload;
+    public int bulletsPerTap;
+    public int bulletsLeft;
+    int bulletsShot;
+    public float timeBetweenShots;
+    public float timeBetweenShooting;
+    public float reloadTime;
+    public bool allowButtonHold;
+    public bool shooting;
+    public bool readyToShoot;
+    public bool reloading;
+
+
+
     public Interactable interactable;
 
     // Start is called before the first frame update
     void Start()
     {
+        bulletsLeft = magazineSize;
+        readyToShoot = true;
         interactable = GetComponent<Interactable>();
     }
 
@@ -27,18 +46,51 @@ public class GunController : MonoBehaviour
         {
             SteamVR_Input_Sources source = interactable.attachedToHand.handType;
 
-            if (fireAction[source].stateDown)
-            {
+            if (allowButtonHold) shooting = fireAction[source].state;
+            else shooting = fireAction[source].stateDown;
+
+            if (readyToShoot && shooting && bulletsLeft > 0) {
+                bulletsShot = bulletsPerTap;
                 Fire();
             }
+            //if (fireAction[source].stateDown)
+            //{
+            //    Fire();
+            //}
         }
 
     }
 
     void Fire() {
+
+        readyToShoot = false;
         Debug.Log("Fire");
+
+  
+        bulletsLeft--;
+        bulletsShot--;
+        Invoke("ResetShot", timeBetweenShooting);
+        if (bulletsShot > 0 && bulletsLeft > 0)
+        {
+            Invoke("Fire", timeBetweenShots);
+        }
         Rigidbody bulletRb = Instantiate(bullet, firepoint.position, firepoint.rotation).GetComponent<Rigidbody>();
         bulletRb.velocity = firepoint.forward * shootingSpeed;
-       
+
+    }
+
+
+    private void ResetShot()    //just a reset of the function to be able to shoot 
+    {
+        readyToShoot = true;
+    }
+
+    private void Reload()
+    {
+        if (magazineSize == 0)
+        {
+            
+        }
+        
     }
 }

@@ -15,7 +15,7 @@ public class bulletMove : MonoBehaviour
     void Update()
     {
         // bullet.AddForce(Vector3.forward * 500);
-        transform.Translate(Vector3.forward * 80 * Time.deltaTime);
+        transform.Translate(Vector3.forward * 50 * Time.deltaTime);
 
     }
 }
