@@ -7,14 +7,21 @@ public class SkellyController : MonoBehaviour
     public SkellyTriggerCollider skellyCollider;
     public GameObject playerObject;
     public Rigidbody rb;
-    private void Start()
+
+    public float MoveSpeed;
+    public float attackDistance;
+    public float MinDist;
+
+    public void Start()
     {
          rb = GetComponent<Rigidbody>();
         //skellyCollider = GetComponent<SkellyTriggerCollider>();
     }
 
-    private void Update()
+    public void Update()
     {
+        
+
         if (skellyCollider.pathFindOn == true)
         {
             moveToPlayer();
@@ -22,19 +29,33 @@ public class SkellyController : MonoBehaviour
         else {
             doNotMoveToPLayer();
         }
+        //Debug.Log(Vector3.Distance(transform.position, playerObject.transform.position) + " min distance");
     }
 
 
     public void moveToPlayer() {
-        //  rb.transform.position = playerObject.transform.position;
-        if (rb.transform.position.x < 100)
+       
+        transform.LookAt(playerObject.transform);
+
+        if (Vector3.Distance(transform.position, playerObject.transform.position) >= MinDist)
         {
 
-            rb.transform.position+= new Vector3(-0.01f, 0.0f, 0.0f);
+            Debug.Log("MOVING SKELLY!");
+
+            transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+
+            if (Vector3.Distance(transform.position, playerObject.transform.position) <= attackDistance)
+            {
+                //Here Call any function U want Like Shoot at here or something
+                Debug.Log("fight");
+
+            }
+
         }
-        Debug.Log("MOVING SKELLY!");
-        
+    
     }
+        
+   
 
     public void doNotMoveToPLayer() { 
         Debug.Log("NOT MOVING SKELLY!");

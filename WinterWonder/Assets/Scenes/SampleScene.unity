@@ -7721,6 +7721,9 @@ MonoBehaviour:
   skellyCollider: {fileID: 122676928}
   playerObject: {fileID: 562985596}
   rb: {fileID: 0}
+  MoveSpeed: 4
+  attackDistance: 0.9
+  MinDist: 0.9
 --- !u!54 &919132149183124105
 Rigidbody:
   m_ObjectHideFlags: 0
