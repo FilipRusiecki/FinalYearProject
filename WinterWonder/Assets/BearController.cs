@@ -15,7 +15,7 @@ public class BearController : MonoBehaviour
     public void Start()
     {
         rb = GetComponent<Rigidbody>();
-        //skellyCollider = GetComponent<SkellyTriggerCollider>();
+   
     }
 
     public void Update()
@@ -30,7 +30,7 @@ public class BearController : MonoBehaviour
         {
             doNotMoveToPLayer();
         }
-        //Debug.Log(Vector3.Distance(transform.position, playerObject.transform.position) + " min distance");
+        
     }
 
 
@@ -42,14 +42,14 @@ public class BearController : MonoBehaviour
         if (Vector3.Distance(transform.position, playerObject.transform.position) >= MinDist)
         {
 
-            Debug.Log("MOVING SKELLY!");
+        //    Debug.Log("MOVING BEAR!");
 
             transform.position += transform.forward * MoveSpeed * Time.deltaTime;
 
             if (Vector3.Distance(transform.position, playerObject.transform.position) <= attackDistance)
             {
                 //Here Call any function U want Like Shoot at here or something
-                Debug.Log("fight");
+               // Debug.Log("fight");
 
             }
 
@@ -61,7 +61,7 @@ public class BearController : MonoBehaviour
 
     public void doNotMoveToPLayer()
     {
-        Debug.Log("NOT MOVING SKELLY!");
+        Debug.Log("NOT MOVING BEAR!");
 
     }
 

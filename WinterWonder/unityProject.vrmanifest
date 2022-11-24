@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.winterwonder.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "E:\\WinterWonder\\WinterWonder\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "E:\\FinalYearProject\\WinterWonder\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "WinterWonder [Testing]"
