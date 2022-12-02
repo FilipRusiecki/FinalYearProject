@@ -113,6 +113,22 @@ namespace Valve.VR
             }
         }
         
+        public virtual SteamVR_Action_Boolean PlaneUp
+        {
+            get
+            {
+                return SteamVR_Actions.default_PlaneUp;
+            }
+        }
+        
+        public virtual SteamVR_Action_Vector2 RTouchPad
+        {
+            get
+            {
+                return SteamVR_Actions.default_RTouchPad;
+            }
+        }
+        
         public virtual SteamVR_Action_Vibration Haptic
         {
             get

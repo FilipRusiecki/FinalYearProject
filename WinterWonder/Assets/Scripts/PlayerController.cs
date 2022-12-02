@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (inPlane == false)
         {
             if (input.axis.magnitude > 0.1f)
@@ -47,7 +48,7 @@ public class PlayerController : MonoBehaviour
     public void enterPlane() 
     {
         inPlane = true;
-        transform.position = planeSeat.position;
+        //transform.position = planeSeat.position;
     }
 
    

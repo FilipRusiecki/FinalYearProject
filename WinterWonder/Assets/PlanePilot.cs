@@ -14,7 +14,8 @@ public class PlanePilot : MonoBehaviour
     [SerializeField]
     float eulerAngZ;
 
-
+    public Rigidbody rigidbody;
+   
 
 
     public bool turnLeft = false;
@@ -23,9 +24,9 @@ public class PlanePilot : MonoBehaviour
     public bool climb = false;
 
 
-    public float speed = 1.0f;
+    public float speed;
 
-    public float turnSpeed = 0.4f;
+    public float turnSpeed;
 
 
 
@@ -34,17 +35,19 @@ public class PlanePilot : MonoBehaviour
 
     public PlayerController player;
 
+    public SteamVR_Action_Vector2 input;
+    public SteamVR_Action_Boolean PlaneAction;
+
 
     private void Start()
     {
-       // interactable = GetComponent<Interactable>();
-        
+        // interactable = GetComponent<Interactable>();
+        rigidbody = GetComponent<Rigidbody>();
     }
 
 
     private void Update()
     {
-
         if (player.inPlane == true)
         {
             GetAngles();
@@ -62,22 +65,26 @@ public class PlanePilot : MonoBehaviour
 
 
 
-
+        
         if (terrainHeightWhereWeAre >= transform.position.y)
         {
             transform.position = new Vector3(transform.position.x, terrainHeightWhereWeAre, transform.position.z);
+           // rigidbody.MovePosition = new Vector3(transform.position.x, terrainHeightWhereWeAre, transform.position.z);
         }
     }
 
-
+        
     private void ForwardMovement() 
     {
-        transform.position += transform.forward * Time.deltaTime * speed;
+ 
+        rigidbody.AddForce(this.gameObject.transform.forward * Time.deltaTime* speed);  // <<<<<------------------------------ use adding force as chaning the transform makes a stuttering effect on the physics and MAKE SURE that the rigid body is not kinematic or physics wont work
+        //rigidbody.AddForce( transform.forward * speed,ForceMode.Acceleration);
+
         //speed -= transform.forward.y * Time.deltaTime * 50.0f;
-         Debug.Log("plane moving");
+        Debug.Log("plane moving");
         if (speed < 10)
         {
-            speed = 10;
+            speed = 1;
         }
     }
 
@@ -94,13 +101,17 @@ public class PlanePilot : MonoBehaviour
         {
             eulerAngX = eulerAngX + 0.2f;
             eulerAngZ = 270.0f;
-            transform.eulerAngles = new Vector3(eulerAngX, eulerAngY, eulerAngZ);
+            rigidbody.transform.eulerAngles = new Vector3(eulerAngX, eulerAngY, eulerAngZ);
+            //rigidbody.AddForce(transform.eulerAngles = new Vector3(eulerAngX, eulerAngY, eulerAngZ),ForceMode.Impulse);
+
         }
         if (eulerAngZ > 90.0f && eulerAngZ < 92.0f)
         {
             eulerAngX = eulerAngX + 0.2f;
             eulerAngZ = 90.0f;
-            transform.eulerAngles = new Vector3(eulerAngX, eulerAngY, eulerAngZ);
+            rigidbody.transform.eulerAngles = new Vector3(eulerAngX, eulerAngY, eulerAngZ);
+            //rigidbody.AddForce(transform.eulerAngles = new Vector3(eulerAngX, eulerAngY, eulerAngZ), ForceMode.Impulse);
+
         }
     }
 
@@ -109,17 +120,23 @@ public class PlanePilot : MonoBehaviour
         if (turnLeft)
         {
             eulerAngZ = eulerAngZ + turnSpeed;
-            transform.eulerAngles = new Vector3(eulerAngX, eulerAngY, eulerAngZ);
+           transform.eulerAngles = new Vector3(eulerAngX, eulerAngY, eulerAngZ);
+           // rigidbody.AddForce(transform.eulerAngles = new Vector3(eulerAngX, eulerAngY, eulerAngZ), ForceMode.Impulse);
+
         }
         if (turnRight)
         {
             eulerAngZ = eulerAngZ - turnSpeed;
             transform.eulerAngles = new Vector3(eulerAngX, eulerAngY, eulerAngZ);
+           //rigidbody.AddForce(transform.eulerAngles = new Vector3(eulerAngX, eulerAngY, eulerAngZ), ForceMode.Impulse);
+
         }
         if (dive)
         {
             eulerAngX = eulerAngX + turnSpeed;
             transform.eulerAngles = new Vector3(eulerAngX, eulerAngY, eulerAngZ);
+            //rigidbody.AddForce(transform.eulerAngles = new Vector3(eulerAngX, eulerAngY, eulerAngZ), ForceMode.Impulse);
+
         }
         if (climb)
         {
@@ -167,8 +184,10 @@ public class PlanePilot : MonoBehaviour
             else {
                 eulerAngX -= turnSpeed;
             }
-            transform.eulerAngles = new Vector3(eulerAngX, eulerAngY, eulerAngZ);
-
+           
+                transform.eulerAngles = new Vector3(eulerAngX, eulerAngY, eulerAngZ);
+            //rigidbody.AddForce(transform.eulerAngles = new Vector3(eulerAngX, eulerAngY, eulerAngZ),ForceMode.Impulse);
+            //player.transform.position = new Vector3(eulerAngX, eulerAngY, eulerAngZ);
         }
 
     }
@@ -177,6 +196,45 @@ public class PlanePilot : MonoBehaviour
 
     private void GetTurn()
     {
+        //if (input.axis.x > 0.1f && PlaneAction.stateDown)
+        //{
+        //    turnLeft = true;
+        //}
+        //if (input.axis.x > 0.1f && PlaneAction.stateUp)
+        //{
+        //    turnLeft = false;
+        //}
+        //if (input.axis.x < 0.1f && PlaneAction.stateDown)
+        //{
+        //    turnRight = true;
+        //}
+        //if (input.axis.x < 0.1f && PlaneAction.stateUp)
+        //{
+        //    turnRight = false;
+        //}
+        if (input.axis.y < 0.1f && PlaneAction.stateDown)
+        {
+
+            dive = true;
+        }
+        if (input.axis.y < 0.1f && PlaneAction.stateUp)
+        {
+       
+            dive = false;
+        }
+        if (input.axis.y> 0.1f && PlaneAction.stateDown)
+        {
+          
+            climb = true;
+        }
+        if (input.axis.y > 0.1f && PlaneAction.stateUp)
+        {
+           
+
+            climb = false;
+        }
+        Debug.Log("x: " + input.axis.x + " y: " + input.axis.y);
+
         ////if (ORVInput.GetDown(ORVInput.Button.PrimaryThumbStickLeft, ORVInput.Controller.RTouch))
         ////{
         ////    turnLeft = true;

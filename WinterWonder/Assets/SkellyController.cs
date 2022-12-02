@@ -40,14 +40,14 @@ public class SkellyController : MonoBehaviour
         if (Vector3.Distance(transform.position, playerObject.transform.position) >= MinDist)
         {
 
-            Debug.Log("MOVING SKELLY!");
+         //   Debug.Log("MOVING SKELLY!");
 
             transform.position += transform.forward * MoveSpeed * Time.deltaTime;
 
             if (Vector3.Distance(transform.position, playerObject.transform.position) <= attackDistance)
             {
                 //Here Call any function U want Like Shoot at here or something
-                Debug.Log("fight");
+               // Debug.Log("fight");
 
             }
 
@@ -58,7 +58,7 @@ public class SkellyController : MonoBehaviour
    
 
     public void doNotMoveToPLayer() { 
-        Debug.Log("NOT MOVING SKELLY!");
+        //Debug.Log("NOT MOVING SKELLY!");
 
     }
 

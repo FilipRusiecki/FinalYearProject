@@ -61,7 +61,7 @@ public class BearController : MonoBehaviour
 
     public void doNotMoveToPLayer()
     {
-        Debug.Log("NOT MOVING BEAR!");
+       // Debug.Log("NOT MOVING BEAR!");
 
     }
 
