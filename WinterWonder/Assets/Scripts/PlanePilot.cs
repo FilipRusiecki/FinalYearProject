@@ -48,6 +48,8 @@ public class PlanePilot : MonoBehaviour
 
     private void Update()
     {
+
+
         if (player.inPlane == true)
         {
             GetAngles();
@@ -214,7 +216,7 @@ public class PlanePilot : MonoBehaviour
         //}
         if (input.axis.y < 0.1f && PlaneAction.stateDown)
         {
-
+            
             dive = true;
         }
         if (input.axis.y < 0.1f && PlaneAction.stateUp)
