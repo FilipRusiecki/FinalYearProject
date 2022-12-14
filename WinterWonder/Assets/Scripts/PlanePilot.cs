@@ -198,84 +198,57 @@ public class PlanePilot : MonoBehaviour
 
     private void GetTurn()
     {
-        //if (input.axis.x > 0.1f && PlaneAction.stateDown)
-        //{
-        //    turnLeft = true;
-        //}
-        //if (input.axis.x > 0.1f && PlaneAction.stateUp)
-        //{
-        //    turnLeft = false;
-        //}
-        //if (input.axis.x < 0.1f && PlaneAction.stateDown)
-        //{
-        //    turnRight = true;
-        //}
-        //if (input.axis.x < 0.1f && PlaneAction.stateUp)
-        //{
-        //    turnRight = false;
-        //}
-        if (input.axis.y < 0.1f && PlaneAction.stateDown)
+        if (input.axis.x < -0.75f && input.axis.y < 0.3f && PlaneAction.stateDown)
+        {
+                turnLeft = true;
+        }
+
+         if (input.axis.x < -0.75f && input.axis.y < 0.3f && PlaneAction.stateUp)
+         {
+                turnLeft = false;
+         }
+
+
+
+         if (input.axis.x > 0.6f && input.axis.y < 0.3f && PlaneAction.stateDown)
+         {
+                turnRight = true;
+         }
+         if (input.axis.x > 0.6f && input.axis.y < 0.3f && PlaneAction.stateUp)
+         {
+                turnRight = false;
+         }
+
+
+
+
+
+            if (input.axis.x > -0.45f && input.axis.y < -0.5f && PlaneAction.stateDown)
         {
             
             dive = true;
         }
-        if (input.axis.y < 0.1f && PlaneAction.stateUp)
+        if (input.axis.x > -0.45f && input.axis.y < -0.5f && PlaneAction.stateUp)
         {
        
             dive = false;
         }
-        if (input.axis.y> 0.1f && PlaneAction.stateDown)
+
+
+
+
+        if (input.axis.x > -0.45f && input.axis.y > 0.5f && PlaneAction.stateDown )
         {
           
             climb = true;
         }
-        if (input.axis.y > 0.1f && PlaneAction.stateUp)
+        if (input.axis.x > -0.45f && input.axis.y > 0.5f && PlaneAction.stateUp)
         {
-           
-
+          
             climb = false;
         }
         Debug.Log("x: " + input.axis.x + " y: " + input.axis.y);
 
-        ////if (ORVInput.GetDown(ORVInput.Button.PrimaryThumbStickLeft, ORVInput.Controller.RTouch))
-        ////{
-        ////    turnLeft = true;
-        ////}
-        ////if (ORVInput.GetUp(ORVInput.Button.PrimaryThumbStickLeft, ORVInput.Controller.RTouch))
-        ////{
-        ////    turnLeft = false;
-        ////}
-
-        ////if (ORVInput.GetDown(ORVInput.Button.PrimaryThumbStickRight, ORVInput.Controller.RTouch))
-        ////{
-        ////    turnRight = true;
-        ////}
-        ////if (ORVInput.GetUp(ORVInput.Button.PrimaryThumbStickRight, ORVInput.Controller.RTouch))
-        ////{
-        ////    turnRight = false;
-        ////}
-
-
-
-
-        ////if (ORVInput.GetDown(ORVInput.Button.PrimaryThumbStickRight, ORVInput.Controller.RTouch))
-        ////{
-        ////    dive = true;
-        ////}
-        ////if (ORVInput.GetUp(ORVInput.Button.PrimaryThumbStickRight, ORVInput.Controller.RTouch))
-        ////{
-        ////    dive = true;
-        ////}
-
-
-        ////if (ORVInput.GetDown(ORVInput.Button.PrimaryThumbStickRight, ORVInput.Controller.RTouch))
-        ////{
-        ////    climb = true;
-        ////}
-        ////if (ORVInput.GetUp(ORVInput.Button.PrimaryThumbStickRight, ORVInput.Controller.RTouch))
-        ////{
-        ////    climb = true;
-        ////}
 
     }
 
