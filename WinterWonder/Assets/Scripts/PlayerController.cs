@@ -4,15 +4,17 @@ using UnityEngine;
 using Valve.VR;
 using Valve.VR.InteractionSystem;
 using UnityEngine.UI;
+using FishNet.Connection;
+using FishNet.Object;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : NetworkBehaviour
 {
     [Header("PlayerControlls")]
     public SteamVR_Action_Vector2 input;
     public float speed = 1;
     private CharacterController characterController;
-
-
+    private Camera playerCamera;
+    private float cameraYOffset = 0.4f;
 
     [Header("PlaneControlls")]
     public bool inPlane = false;
@@ -40,19 +42,33 @@ public class PlayerController : MonoBehaviour
 
 
 
-    [Header("HUD Icon bars")]
-    public HealthBar healthbar;
+   // [Header("HUD Icon bars")]
+    //public HealthBar healthbar;
 
-    public HungerBar hungerBarScript;
-    public Slider hungerBarSlider;
+    //public HungerBar hungerBarScript;
+    //public Slider hungerBarSlider;
 
-    public WaterBar waterBarScript;
-    public Slider waterBarSlider;
+   // public WaterBar waterBarScript;
+   // public Slider waterBarSlider;
 
-    public StaminaBar staminaBarScript;
-    public Slider staminaBarSlider;
+    //public StaminaBar staminaBarScript;
+   // public Slider staminaBarSlider;
 
 
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
+        if (base.IsOwner)
+        {
+            playerCamera = Camera.main;
+            playerCamera.transform.position = new Vector3(transform.position.x, transform.position.y + cameraYOffset, transform.position.z);
+            playerCamera.transform.SetParent(transform);
+        }
+        else
+        {
+            gameObject.GetComponent<PlayerController>().enabled = false;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -60,16 +76,16 @@ public class PlayerController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
 
         currentHealth = maxHealth;
-        healthbar.setMaxHealth(maxHealth);
+       // healthbar.setMaxHealth(maxHealth);
 
         stamina = maxStamina;
-        staminaBarScript.setMaxStamina(maxStamina);
+       // staminaBarScript.setMaxStamina(maxStamina);
 
         water = maxWater;
-        waterBarScript.setMaxWater(maxWater);
+        //waterBarScript.setMaxWater(maxWater);
 
         hunger = maxHunger;
-        hungerBarScript.setMaxHunger(maxHunger);
+        //hungerBarScript.setMaxHunger(maxHunger);
     }
 
     // Update is called once per frame
@@ -87,7 +103,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.H))
             {
                 currentHealth -= 1;
-                healthbar.setHealth(currentHealth);
+              //  healthbar.setHealth(currentHealth);
             }
 
 
@@ -119,14 +135,14 @@ public class PlayerController : MonoBehaviour
     {
 
         hunger -=  0.04f * Time.deltaTime;
-        hungerBarScript.setHunger(hunger);
+        //hungerBarScript.setHunger(hunger);
     }
 
     public void waterDrain()
     {
 
         water -= 0.06f * Time.deltaTime;
-        waterBarScript.setWater(water);
+       // waterBarScript.setWater(water);
     }
 
 }

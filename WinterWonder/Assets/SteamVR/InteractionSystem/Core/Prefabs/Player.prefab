@@ -310,10 +310,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f1f29ebed0d78340bca93ca82ea3d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentIndexCache: 0
+  _addedNetworkObject: {fileID: 0}
+  _networkObjectCache: {fileID: 0}
   input:
     actionPath: /actions/default/in/TouchPad
     needsReinit: 0
   speed: 1
+  inPlane: 0
+  planeSeat: {fileID: 0}
+  planeExitPos: {fileID: 0}
+  maxHealth: 100
+  currentHealth: 0
+  hunger: 100
+  maxHunger: 100
+  water: 100
+  maxWater: 100
+  stamina: 100
+  maxStamina: 100
+  staminaIncrease: 3
+  staminaDrain: 3
 --- !u!114 &713792798
 MonoBehaviour:
   m_ObjectHideFlags: 0
