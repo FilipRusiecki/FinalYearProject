@@ -33,6 +33,8 @@ WinterWonder*/*.pdb.meta
 # Unity3D Generated File On Crash Reports
 WinterWonder*/sysinfo.txt
 
+WinterWonder_clone_0
+
 # Builds
 *.apk
 *.unitypackage
