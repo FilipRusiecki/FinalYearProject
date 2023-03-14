@@ -1,10 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-public class ColliderFollowController : MonoBehaviour
+public class ColliderFollowController : NetworkBehaviour
 {
+    [Header("Player sync")]
+    [SyncVar]
+    public Vector3 syncPosition;
+    [SyncVar]
+    public Quaternion syncRotation;
 
     private CharacterController charController;
     public Transform centerEye;
@@ -12,6 +18,40 @@ public class ColliderFollowController : MonoBehaviour
     private void Start()
     {
         charController = GetComponent<CharacterController>();
+
+        if (!isLocalPlayer)
+        {
+            GetComponent<CharacterController>().enabled = false;
+            return;
+        }
+    }
+
+    void Update()
+    {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
+        TransmitPosition();
+    }
+
+
+    [ClientCallback]
+    void TransmitPosition()
+    {
+        CmdProvidePositionToServer(charController.transform.position);
+    }
+
+    /// <summary>
+    /// Syncs the position for the server
+    /// </summary>
+    /// <param name="pos"></param>
+    [Command]
+    void CmdProvidePositionToServer(Vector3 pos)
+    {
+        syncPosition = pos;
+
     }
 
     private void LateUpdate()
