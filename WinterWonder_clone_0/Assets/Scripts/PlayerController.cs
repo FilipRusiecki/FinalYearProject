@@ -15,20 +15,22 @@ using Valve.VR.InteractionSystem;
         public Quaternion syncRotation;
 
         public Rigidbody rb;
+        [Header("Health Related Vars")]
+        public int health = 100;
+        public bool alive = true;
 
-
-        [Header("PlayerControlls")]
+    [Header("PlayerControlls")]
         public SteamVR_Action_Vector2 input;
         public float speed = 1;
         private CharacterController characterController;
 
 
 
-        [Header("PlaneControlls")]
+        //[Header("PlaneControlls")]
 
-        public bool inPlane = false;
-        public Transform planeSeat;
-        public Transform planeExitPos;
+        //public bool inPlane = false;
+        //public Transform planeSeat;
+        //public Transform planeExitPos;
 
 
 
@@ -56,23 +58,23 @@ using Valve.VR.InteractionSystem;
                 return;
             }
 
-            if (inPlane == false)
-            {
+            //if (inPlane == false)
+            //{
                 if (input.axis.magnitude > 0.1f)
                 {
                     Vector3 direction = PlayerVRRR.instance.hmdTransform.TransformDirection(new Vector3(input.axis.x, 0, input.axis.y));
                     characterController.Move(speed * Time.deltaTime * Vector3.ProjectOnPlane(direction, Vector3.up) - new Vector3(0, 9.81f, 0) * Time.deltaTime);
                 }
-            }
-            if (inPlane == true)
-            {
-                transform.position = planeSeat.position;
-            }
+          //  }
+            //if (inPlane == true)
+            //{
+            //    transform.position = planeSeat.position;
+            //}
             TransmitPosition();
         }
         public void enterPlane()
         {
-            inPlane = true;
+           // inPlane = true;
             //transform.position = planeSeat.position;
         }
 
@@ -96,11 +98,11 @@ using Valve.VR.InteractionSystem;
         }
 
 
-        public void exitPlane()
-        {
-            inPlane = false;
-            transform.position = planeExitPos.position;
-        }
+        //public void exitPlane()
+        //{
+        //    inPlane = false;
+        //    transform.position = planeExitPos.position;
+        //}
 
     }
 
