@@ -20,7 +20,9 @@ body {
 	
 }
 .contactBox{
-	border: 0.2em transparent;
+	border: 0.2em black;
 	border-style: solid;
-	width:10%;
+	margin-top:2%;
+	width:13%;
+	background-color: #8598c9;
 }
