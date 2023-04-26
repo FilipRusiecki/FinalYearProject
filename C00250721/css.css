@@ -1,0 +1,28 @@
+body {
+  background-color: #54578f;
+}
+
+
+.mainBoxImg{
+	border: 0.2em black;
+	border-style: solid;
+	width:80%;
+}
+
+.secondBox{
+	border: 0.2em black;
+	border-style: solid;
+	width:60%;
+}
+
+.smallImg{
+	width:50%;
+	
+}
+.contactBox{
+	border: 0.2em black;
+	border-style: solid;
+	margin-top:2%;
+	width:13%;
+	background-color: #8598c9;
+}
