@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Mirror.Examples.Basic.ChangeIP">
+    <Position X="11.75" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAgAAEAAAAAAAAAEAAAAAAAAgAAAA=</HashCode>
+      <FileName>Assets\Scripts\ChangeIP.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerController">
+    <Position X="8.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>KAQAAAIAACAAAAAEAAAAAAACBAAAATAAAAEAAAIAAAg=</HashCode>
+      <FileName>Assets\Scripts\PlayerController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GunController">
+    <Position X="10" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARAAECgASAAIgAAAgAIgACCCAAEAAIQSBAIAAAAQAA=</HashCode>
+      <FileName>Assets\Scripts\GunController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BearController">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAAACAAABAGAQAAAAAAgAAAAAAAAAAAAACAAgA=</HashCode>
+      <FileName>Assets\Scripts\BearController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BearTriggerCollider">
+    <Position X="0.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAIAAAAAAAAAAAAAIAAQAAAQAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\BearTriggerCollider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="bulletMove">
+    <Position X="8.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\bulletMove.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ColliderFollowController">
+    <Position X="10.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQAAAIAACAAAAAAAAAAIAAAAAAAACAQAAEAIAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ColliderFollowController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="planeAOETrigger">
+    <Position X="6.25" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAABQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\planeAOETrigger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlanePilot">
+    <Position X="4.5" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YQUIAAIAACAAAAAQAAACEAAAAAAAAREBBgBAAEAAAAA=</HashCode>
+      <FileName>Assets\Scripts\PlanePilot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimpleAttach">
+    <Position X="10.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AjAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Assets\Scripts\SimpleAttach.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SkellyController">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAABAGAQAAQAAAgAAAAAAAAAAAAACAAgA=</HashCode>
+      <FileName>Assets\Scripts\SkellyController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SkellyTriggerCollider">
+    <Position X="2.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAACAAAAAIAAAAAAAAAAAAAIAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\SkellyTriggerCollider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WaterBar">
+    <Position X="0.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAACAAAAAAAAgEIAAAAAA=</HashCode>
+      <FileName>Assets\WaterBar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StaminaBar">
+    <Position X="2.25" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAQAAAAAAAAgEAEAAAAA=</HashCode>
+      <FileName>Assets\StaminaBar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mirror.Examples.Basic.PlayerUI">
+    <Position X="8" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAACAAAEAAAAAAEAABAAABAAAgQAAAAAA=</HashCode>
+      <FileName>Assets\PlayerUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mirror.Examples.Basic.Player">
+    <Position X="12.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAQAAAAAlCAAAAgAAQAACAAAAAAAAhAhAAgJAAQ=</HashCode>
+      <FileName>Assets\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HungerBar">
+    <Position X="2.25" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAIAAQAAAAAAAAAAAAAAAAAgEAAAAAAA=</HashCode>
+      <FileName>Assets\HungerBar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthBar">
+    <Position X="0.5" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAAICAAgEAAAAAAA=</HashCode>
+      <FileName>Assets\HealthBar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mirror.Examples.Basic.gameManagerMP">
+    <Position X="13.5" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAIAACAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Assets\gameManagerMP.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mirror.Examples.Basic.CanvasUI">
+    <Position X="8" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAABAQAAAAAAAAIQAAEA=</HashCode>
+      <FileName>Assets\CanvasUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mirror.Examples.Basic.BasicNetManager">
+    <Position X="11.75" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAQAAAAAAAAAAQAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\BasicNetManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityEngine.MonoBehaviour">
+    <Position X="5.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Valve.VR.InteractionSystem.PlayerVRRR">
+    <Position X="14.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQEAApAECAQAgCAAIAMBAECiABAIAAQAABAQAAEAEA=</HashCode>
+      <FileName>Assets\PlayerVRRR.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mirror.NetworkBehaviour">
+    <Position X="18.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SCAwAFQDAAAGhhAAkuoNkpgSqClADBEAsjADAUIMASQ=</HashCode>
+      <FileName>Assets\Scripts\NetworkBehaviour.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Mirror.SyncMode">
+    <Position X="17" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Assets\Scripts\NetworkBehaviour.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Mirror.SyncDirection">
+    <Position X="17" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Assets\Scripts\NetworkBehaviour.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
