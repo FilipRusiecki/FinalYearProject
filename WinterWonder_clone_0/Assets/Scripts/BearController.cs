@@ -15,13 +15,13 @@ public class BearController : MonoBehaviour
     public void Start()
     {
         rb = GetComponent<Rigidbody>();
-   
+        playerObject = GameObject.FindGameObjectWithTag("PlayerVR");
     }
 
     public void Update()
     {
 
-
+        playerObject = GameObject.FindGameObjectWithTag("PlayerVR");
         if (bearcollider.pathFindOn == true)
         {
             moveToPlayer();

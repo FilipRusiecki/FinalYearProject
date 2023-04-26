@@ -10,8 +10,6 @@ public class GunController : MonoBehaviour
     public Transform firepoint;
     public float shootingSpeed = 1;
     public SteamVR_Action_Boolean fireAction;
-
-
     public int magazineSize;
     public int availableAmmo;
     private int ammoTakenToReload;
@@ -25,11 +23,7 @@ public class GunController : MonoBehaviour
     public bool shooting;
     public bool readyToShoot;
     public bool reloading;
-
-
-
     public Interactable interactable;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +31,6 @@ public class GunController : MonoBehaviour
         readyToShoot = true;
         interactable = GetComponent<Interactable>();
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -60,7 +53,6 @@ public class GunController : MonoBehaviour
         }
 
     }
-
     void Fire() {
 
         readyToShoot = false;
@@ -78,19 +70,25 @@ public class GunController : MonoBehaviour
         bulletRb.velocity = firepoint.forward * shootingSpeed;
 
     }
-
-
     private void ResetShot()    //just a reset of the function to be able to shoot 
     {
         readyToShoot = true;
     }
-
     private void Reload()
     {
         if (magazineSize == 0)
         {
-            
+            ammoTakenToReload = bulletsLeft - magazineSize;
+            availableAmmo += ammoTakenToReload;
+            reloading = true;
+            Invoke("ReloadFinished", reloadTime);
         }
         
+    }
+
+    private void ReloadFinished()
+    {
+        bulletsLeft -= ammoTakenToReload;
+        reloading = false;
     }
 }

@@ -15,13 +15,13 @@ public class SkellyController : MonoBehaviour
     public void Start()
     {
          rb = GetComponent<Rigidbody>();
-        //skellyCollider = GetComponent<SkellyTriggerCollider>();
+         playerObject = GameObject.FindGameObjectWithTag("PlayerVR");
     }
 
     public void Update()
     {
-        
 
+        playerObject = GameObject.FindGameObjectWithTag("PlayerVR");
         if (skellyCollider.pathFindOn == true)
         {
             moveToPlayer();

@@ -26,23 +26,23 @@ using Valve.VR.InteractionSystem;
 
 
 
-        //[Header("PlaneControlls")]
+       [Header("PlaneControlls")]
 
-        //public bool inPlane = false;
-        //public Transform planeSeat;
-        //public Transform planeExitPos;
-
-
+        public bool inPlane = false;
+        public GameObject planeSeat;
+        public Transform planeExitPos;
 
 
 
-        // Start is called before the first frame update
-        void Start()
+
+
+    // Start is called before the first frame update
+    void Start()
         {
             rb = gameObject.GetComponent<Rigidbody>();
-
+         //   planeSeat = GameObject.FindGameObjectWithTag("planeSeat");
             characterController = GetComponent<CharacterController>();
-
+    
             if (!isLocalPlayer)
             {
                 GetComponent<CharacterController>().enabled = false;
@@ -58,25 +58,25 @@ using Valve.VR.InteractionSystem;
                 return;
             }
 
-            //if (inPlane == false)
-            //{
+            if (inPlane == false)
+            {
                 if (input.axis.magnitude > 0.1f)
                 {
                     Vector3 direction = PlayerVRRR.instance.hmdTransform.TransformDirection(new Vector3(input.axis.x, 0, input.axis.y));
                     characterController.Move(speed * Time.deltaTime * Vector3.ProjectOnPlane(direction, Vector3.up) - new Vector3(0, 9.81f, 0) * Time.deltaTime);
                 }
-          //  }
-            //if (inPlane == true)
-            //{
-            //    transform.position = planeSeat.position;
-            //}
-            TransmitPosition();
-        }
-        public void enterPlane()
+         }
+        if (inPlane == true)
         {
-           // inPlane = true;
-            //transform.position = planeSeat.position;
+            //transform.position = planeSeat.transform.position;
         }
+        TransmitPosition();
+        }
+        //public void enterPlane()
+        //{
+        //  // inPlane = true;
+        //  // transform.position = planeSeat.transform.position;
+        //}
 
 
 
